@@ -6,18 +6,48 @@ import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutline
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import BorderColorOutlinedIcon from '@material-ui/icons/BorderColorOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
+
+
+
+
  export default function Avatar(props){
 
-    const  [imgData, setImgData] = useState([]);
+ 
 
 const name = "BoderOutlined"
    
-      console.log(props.userName +  " thsi is user name")
+   
       const link =  "https://avatars.dicebear.com/v2/avataaars/" + props.userName + ".svg?options[mood][]=happy"
      
-    
-        
- 
+  
+      
+    function deleteUser(){
+      console.log(props.userId);
+      props.onDelete(props.userId);
+    }
+
+    function dialog(event) {
+      var modal = document.getElementById("myModal");
+  
+      var btn = document.getElementById("myBtn");
+  
+      var span = document.getElementsByClassName("close")[0];
+  
+      modal.style.display = "block";
+  
+     
+      if ((modal.style.display = "block")) {
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+      }
+  
+      window.onclick = function (event) {
+        if (event.target === modal) {
+          modal.style.display = "none";
+        }
+      };
+    }
 
 
     return(
@@ -43,8 +73,36 @@ const name = "BoderOutlined"
   </div>
   <div  style={{background:"rgb(250,250,250)"}}>
           <FavoriteIcon    style={{ color: "rgb(255,15,15)"  }}/>
-          <BorderColorOutlinedIcon   style={{ color: "rgb(137,137,137)" }}/>
-          <DeleteIcon    style={{ color: "rgb(137,137,137)" }}/>
+          <BorderColorOutlinedIcon onClick={dialog}  style={{ color: "rgb(137,137,137)" }}/>
+          <div id="myModal" class="modal ">
+                        <div class="modalcontent col-lg-4">
+                          <span class="close">&times;</span>
+                          <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Name :</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+    </div>
+  <div class="form-group">
+  <label for="exampleInputEmail1">Email:</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+   
+  </div>
+  <div class="form-group form-check">
+  <label for="exampleInputEmail1">Phone :</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+   
+  </div>
+  <div class="form-group form-check">
+  <label for="exampleInputEmail1">Website :</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+   
+  </div>
+  <button type="submit" class="btn btn-primary">OK</button>
+</form>
+                          
+                        </div>
+                      </div>
+          <DeleteIcon onClick={deleteUser}    style={{ color: "rgb(137,137,137)" }}/>
       </div>
 </div>
         </div>

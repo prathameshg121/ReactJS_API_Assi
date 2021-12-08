@@ -55,7 +55,15 @@ useEffect(() => {
 // }
 , [])
 
-
+      function handleDelete(id){
+        console.log(id + " in the handleDelete ")
+        setuserData(prevData =>{
+          return (  prevData.filter((currUrser,index)=>{
+            // console.log(index+1);
+            return id !== (index);
+          })
+        )})
+      }
 
 
 
@@ -63,7 +71,7 @@ useEffect(() => {
 
     return(
 <div>
-       {userData.map(data =>
+       {userData.map((data,index )=>
        <div className ="card-container">
        {/* <div className="card-container"> */}
       <Avatar
@@ -72,7 +80,11 @@ useEffect(() => {
             email ={data.email}
             phoneNo ={data.phone}
             website = {data.website}
+            onDelete = {handleDelete}
+            userId = {index}
+            key ={index}
       />
+
       </div>
        
         
