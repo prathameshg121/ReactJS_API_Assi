@@ -3,38 +3,12 @@ import Avatar from "./Avatar";
 import axios from "axios"
 
 
-// id: "",
-// name: "",
-// username: "",
-// email: "",
-// address: {
-//   street: "",
-//   suite: "",
-//   city: "",
-//   zipcode: "",
-//   geo: {
-//     lat: "",
-//     lng: ""
-//   }
-// },
-// phone: "",
-// website: "",
-// company: {
-//   name: "",
-//   catchPhrase: "",
-//   bs: ""
-// }
+
 export default function Display (){
 const  [userData, setuserData] = useState([]);
 
 
 useEffect(() => {
-    // const loggedInUser = localStorage.getItem("userData");
-    // console.log(loggedInUser);
-    // if(loggedInUser){
-    //     const foundUser = JSON.parse(loggedInUser);
-        
-  
     axios
         .get(`https://jsonplaceholder.typicode.com/users`)
         .then((res) => {
@@ -65,6 +39,10 @@ useEffect(() => {
         )})
       }
 
+
+      function updateData(udatedData){
+          
+      }
 
 
 
