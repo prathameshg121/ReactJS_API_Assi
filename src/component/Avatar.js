@@ -76,7 +76,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
   
     })
 
-    event.preventDefault();
+   
 
  }
 
@@ -95,11 +95,16 @@ const name = "BoderOutlined"
     }
 
     function dialog(event) {
+      const {name, value} = event.target;
+      console.log(name + " after clicking on card")
+
+
       var modal = document.getElementById("myModal");
   
       var btn = document.getElementById("myBtn");
   
       var span = document.getElementsByClassName("close")[0];
+      
   
       modal.style.display = "block";
   
@@ -120,6 +125,12 @@ const name = "BoderOutlined"
 
  function showLike(){
    setlike(!like)
+ }
+ function saveData(event){
+   console.log("Data is save - : " + userData);
+   var modal = document.getElementById("myModal");
+   modal.style.display = "none";
+   event.preventDefault();
  }
     
 
@@ -188,7 +199,7 @@ const name = "BoderOutlined"
     <input  class="form-control" name="website" onChange={handleChange}  value={userData.website}   required/>
    
   </div>
-  <button type="submit" class="btn btn-primary">OK</button>
+  <button type="submit" onClick={saveData} class="btn btn-primary">OK</button>
 </form>
                           
                         </div>
