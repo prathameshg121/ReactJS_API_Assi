@@ -47,7 +47,7 @@ useEffect(() => {
         console.log(id + " in the handleDelete ")
         setuserData(prevData =>{
           return (  prevData.filter((currUrser,index)=>{
-            // console.log(index+1);
+           
             return id !== (index);
           })
         )})
@@ -65,7 +65,7 @@ useEffect(() => {
 {loading ?   <div>
        {userData.map((data,index )=>
        <div className ="card-container">
-       {/* <div className="card-container"> */}
+      
       <Avatar
             userName = {data.username}
             name ={data.name}
